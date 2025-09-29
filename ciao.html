@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sito Immagine Scorrevole</title>
+    <!-- Carica Tailwind CSS per una stilizzazione rapida e responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Imposta il font Inter come richiesto */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0; /* Sfondo leggermente grigio */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Contenitore principale per l'immagine */
+        #image-container {
+            /* Larghezza fissa che imita un contenuto web centrato su desktop, ma si adatta su mobile */
+            max-width: 900px;
+            width: 95%;
+            margin-top: 1rem;
+            margin-bottom: 5rem; /* Margine inferiore per simulare un "footer" e garantire lo scorrimento */
+            background-color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Ombra leggera */
+            border-radius: 0.75rem; /* Bordi arrotondati */
+            overflow: hidden; /* Nasconde eventuali eccessi dell'immagine */
+        }
+
+        /* L'immagine in sé */
+        #scrollable-image {
+            width: 100%;
+            display: block;
+            /* La sua altezza sarà definita da JavaScript per estendere il contenuto */
+            height: auto;
+        }
+
+        /* Stile per l'elemento di riempimento invisibile che garantisce lo scorrimento */
+        #spacer {
+            width: 100%;
+            background-color: #f0f0f0; /* Colore di sfondo leggero */
+            /* Altezza che aggiunge spazio extra sotto l'immagine, permettendo lo scorrimento */
+            height: 800px; 
+        }
+
+        /* Nasconde lo scorrimento orizzontale, se presente */
+        html, body {
+            overflow-x: hidden;
+        }
+    </style>
+    <script>
+        // Funzione per impostare l'altezza del contenitore dell'immagine
+        function adjustImageHeight() {
+            const container = document.getElementById('image-container');
+            const spacer = document.getElementById('spacer');
+            // Imposta l'altezza fittizia dell'immagine a un valore molto grande
+            // per simulare un sito web lungo, oltre all'immagine stessa.
+            
+            // L'immagine originale ha un'altezza di circa 1080px (se visualizzata in 1:1)
+            // Impostiamo l'altezza del contenitore a (Altezza Immagine + 1000px di spazio extra)
+            
+            // Non è necessario impostare l'altezza dell'immagine, ma estendiamo lo spazio sotto
+            // per far sembrare il sito molto lungo.
+            
+            // Opzione 1: usa l'immagine caricata come sfondo ripetuto (Non necessario per questo obiettivo)
+            // Opzione 2: usare l'immagine come contenuto principale e aggiungere spazio sotto. (Scegliamo questa)
+        }
+
+        // Aggiunge l'ascoltatore di eventi per l'immagine e al caricamento della finestra
+        window.onload = () => {
+             // Non è strettamente necessario il JS qui, ma si potrebbe usare per calcolare altezze dinamiche
+             // Manteniamo solo la parte HTML/CSS per semplicità e ci affidiamo allo 'spacer'
+             // che aggiunge lo spazio scorrevole sotto l'immagine.
+        };
+    </script>
+</head>
+<body>
+
+    <div id="image-container">
+        <!-- L'immagine del sito che l'utente vuole visualizzare -->
+        <img id="scrollable-image" 
+             src="Screen (1).png" 
+             alt="Screenshot del sito web Vorwerk e LNDC Animal Protection">
+        
+        <!-- Elemento invisibile che aggiunge spazio extra sotto l'immagine per garantire lo scorrimento. -->
+    </div>
+
+</body>
+</html>
